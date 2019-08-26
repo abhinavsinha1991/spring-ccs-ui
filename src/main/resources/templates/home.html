@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<title>CurrencyConvertor</title>
+<meta charset="UTF-8">
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="author" content="spring-cc">
+
+<!-- Bootstrap CSS -->
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+<!-- font-awesome CSS -->
+<link th:href="@{/css/all.css}" rel="stylesheet" />
+<!-- Custom styles -->
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+
+</head>
+<body>
+	<section class="container">
+		<!-- <section id="container" class=""> -->
+		<header class="header themeColor5">
+			<div th:replace="header::header"></div>
+		</header>
+
+		<!--main content start-->
+		<section id="main-content">
+			<section class="wrapper">
+				<nav class="breadcrumb themeColor6"
+					style="float: none; margin: 0px;">
+					<h5 style="text-align: left;">Worldwide Currency Converter
+						</h5>
+
+					<!-- <a class="breadcrumb-item" href="#">Live Currency Conversion,
+						Calculators and Currency Exchange Info</a> -->
+				</nav>
+
+				<div class="card" style="margin-top: 10px;">
+					<div class="card-header themeColor6">
+						<i class='fas fa-handshake' style='font-size: 24px'></i>
+						&nbsp;&nbsp;<span style="font-size: 15px;"> Currency
+							Converter </span>
+					</div>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-lg-2"></div>
+							<div class="col-lg-5">
+								<label>From this currency:</label>
+							</div>
+							<div class="col-lg-5">
+								<label>To this currency:</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2"></div>
+							<div class="col-lg-5">
+								<select id="ConvertFrom" name="ConvertFrom"
+									style="width: 200px;" size="6">
+									<option value="ARS">Argentine Peso (ARS)</option>
+									<option value="AUD">Australian Dollar (AUD)</option>
+									<option value="BHD">Bahraini Dinar (BHD)</option>
+									<option value="BBD">Barbadian Dollar (BBD)</option>
+									<option value="BRL">Brazilian Real (BRL)</option>
+									<option value="GBP">British Pound (GBP)</option>
+									<option value="CAD">Canadian Dollar (CAD)</option>
+									<option value="XAF">Central African CFA franc (XAF)</option>
+									<option value="CLP">Chilean Peso (CLP)</option>
+									<option value="CNY">Chinese Yuan (CNY)</option>
+									<option value="CZK">Czech Koruna (CZK)</option>
+									<option value="DKK">Danish Krone (DKK)</option>
+									<option value="XCD">East Caribbean Dollar (XCD)</option>
+									<option value="EGP">Egyptian Pound (EGP)</option>
+									<option value="EEK">Estonian Kroon (EEK)</option>
+									<option value="EUR">Euro (EUR)</option>
+									<option value="HKD">Hong Kong Dollar (HKD)</option>
+									<option value="HUF">Hungarian Forint (HUF)</option>
+									<option value="ISK">Icelandic Krona (ISK)</option>
+									<option value="INR">Indian Rupee (INR)</option>
+									<option value="IDR">Indonesian Rupiah (IDR)</option>
+									<option value="ILS">Israeli Sheqel (ILS)</option>
+									<option value="JMD">Jamaican Dollar (JMD)</option>
+									<option value="JPY">Japanese Yen (JPY)</option>
+									<option value="JOD">Jordanian Dinar (JOD)</option>
+									<option value="KES">Kenyan Shilling (KES)</option>
+									<option value="LVL">Latvian Lats (LVL)</option>
+									<option value="LBP">Lebanese Pound (LBP)</option>
+									<option value="LTL">Lithuanian Litas (LTL)</option>
+									<option value="MYR">Malaysian Ringgit (MYR)</option>
+									<option value="MXN">Mexican Peso (MXN)</option>
+									<option value="MAD">Moroccan Dirham (MAD)</option>
+									<option value="NAD">Namibian Dollar (NAD)</option>
+									<option value="NPR">Nepalese Rupee (NPR)</option>
+									<option value="NZD">New Zealand Dollar (NZD)</option>
+									<option value="NOK">Norwegian Krone (NOK)</option>
+									<option value="OMR">Omani Rial (OMR)</option>
+									<option value="PKR">Pakistani Rupee (PKR)</option>
+									<option value="PAB">Panamanian Balboa (PAB)</option>
+									<option value="PHP">Philippine Peso (PHP)</option>
+									<option value="PLN">Polish Zloty (PLN)</option>
+									<option value="QAR">Qatari Riyal (QAR)</option>
+									<option value="RON">Romanian Leu (RON)</option>
+									<option value="RUB">Russian Rouble (RUB)</option>
+									<option value="SAR">Saudi Riyal (SAR)</option>
+									<option value="SGD">Singapore Dollar (SGD)</option>
+									<option value="ZAR">South African Rand (ZAR)</option>
+									<option value="KRW">South Korean Won (KRW)</option>
+									<option value="LKR">Sri Lankan Rupee (LKR)</option>
+									<option value="SEK">Swedish Krona (SEK)</option>
+									<option value="CHF">Swiss Franc (CHF)</option>
+									<option value="THB">Thai Baht (THB)</option>
+									<option value="TRY">Turkish Lira (TRY)</option>
+									<option value="AED">United Arab Emirates Dirham (AED)</option>
+									<option value="USD">US Dollar (USD)</option>
+									<option value="XOF">West African CFA franc (XOF)</option>
+								</select>
+							</div>
+							<div class="col-lg-5">
+								<select id="ConvertTo" name="ConvertTo" style="width: 200px;"
+									size="6">
+									<option value="ARS">Argentine Peso (ARS)</option>
+									<option value="AUD">Australian Dollar (AUD)</option>
+									<option value="BHD">Bahraini Dinar (BHD)</option>
+									<option value="BBD">Barbadian Dollar (BBD)</option>
+									<option value="BRL">Brazilian Real (BRL)</option>
+									<option value="GBP">British Pound (GBP)</option>
+									<option value="CAD">Canadian Dollar (CAD)</option>
+									<option value="XAF">Central African CFA franc (XAF)</option>
+									<option value="CLP">Chilean Peso (CLP)</option>
+									<option value="CNY">Chinese Yuan (CNY)</option>
+									<option value="CZK">Czech Koruna (CZK)</option>
+									<option value="DKK">Danish Krone (DKK)</option>
+									<option value="XCD">East Caribbean Dollar (XCD)</option>
+									<option value="EGP">Egyptian Pound (EGP)</option>
+									<option value="EEK">Estonian Kroon (EEK)</option>
+									<option value="EUR">Euro (EUR)</option>
+									<option value="HKD">Hong Kong Dollar (HKD)</option>
+									<option value="HUF">Hungarian Forint (HUF)</option>
+									<option value="ISK">Icelandic Krona (ISK)</option>
+									<option value="INR">Indian Rupee (INR)</option>
+									<option value="IDR">Indonesian Rupiah (IDR)</option>
+									<option value="ILS">Israeli Sheqel (ILS)</option>
+									<option value="JMD">Jamaican Dollar (JMD)</option>
+									<option value="JPY">Japanese Yen (JPY)</option>
+									<option value="JOD">Jordanian Dinar (JOD)</option>
+									<option value="KES">Kenyan Shilling (KES)</option>
+									<option value="LVL">Latvian Lats (LVL)</option>
+									<option value="LBP">Lebanese Pound (LBP)</option>
+									<option value="LTL">Lithuanian Litas (LTL)</option>
+									<option value="MYR">Malaysian Ringgit (MYR)</option>
+									<option value="MXN">Mexican Peso (MXN)</option>
+									<option value="MAD">Moroccan Dirham (MAD)</option>
+									<option value="NAD">Namibian Dollar (NAD)</option>
+									<option value="NPR">Nepalese Rupee (NPR)</option>
+									<option value="NZD">New Zealand Dollar (NZD)</option>
+									<option value="NOK">Norwegian Krone (NOK)</option>
+									<option value="OMR">Omani Rial (OMR)</option>
+									<option value="PKR">Pakistani Rupee (PKR)</option>
+									<option value="PAB">Panamanian Balboa (PAB)</option>
+									<option value="PHP">Philippine Peso (PHP)</option>
+									<option value="PLN">Polish Zloty (PLN)</option>
+									<option value="QAR">Qatari Riyal (QAR)</option>
+									<option value="RON">Romanian Leu (RON)</option>
+									<option value="RUB">Russian Rouble (RUB)</option>
+									<option value="SAR">Saudi Riyal (SAR)</option>
+									<option value="SGD">Singapore Dollar (SGD)</option>
+									<option value="ZAR">South African Rand (ZAR)</option>
+									<option value="KRW">South Korean Won (KRW)</option>
+									<option value="LKR">Sri Lankan Rupee (LKR)</option>
+									<option value="SEK">Swedish Krona (SEK)</option>
+									<option value="CHF">Swiss Franc (CHF)</option>
+									<option value="THB">Thai Baht (THB)</option>
+									<option value="TRY">Turkish Lira (TRY)</option>
+									<option value="AED">United Arab Emirates Dirham (AED)</option>
+									<option value="USD">US Dollar (USD)</option>
+									<option value="XOF">West African CFA franc (XOF)</option>
+								</select>
+							</div>
+						</div>
+						</br>
+						<div class="row">
+							<div class="col-lg-2"></div>
+							<div class="col-lg-5">
+								<label>Amount:</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-2"></div>
+							<div class="col-lg-5">
+								<input type="text" id="txtAmount" class="form-control"
+									maxlength="9" style="width: 200px;" />
+							</div>
+							<div class="col-lg-5">
+								<a type="button" class="btn" id="btnConvert"
+									style="width: 100px;" onclick="getConvertion();">Submit</a>
+							</div>
+						</div>
+						</br>
+						<div class="row" style="height:20px;">
+							<div class="col-lg-2"></div>
+							<div class="col-lg-10">
+								<span id="spnError" style="color: red; font-size: 14px;"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="card" style="margin-top: 10px;">
+					<div class="card-body themeColor6">
+						<div class="row" style="height:20px;">
+							<div class="col-lg-1"></div>
+							<div class="col-lg-10" style="text-align: center;">
+								<span id="spnResult" style="color: green; font-size: 15px;" class="font-weight-bold"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row" style="height:10px;"></div>
+			</section>
+		</section>
+		<!-- <div class="footer themeColor1">
+			<div th:replace="footer::footer"></div>
+		</div> -->
+	</section>
+
+	<!-- javascripts -->
+	<script th:src="@{/js/jquery.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/currencyConverter.js}"></script>
+</body>
+</html>
